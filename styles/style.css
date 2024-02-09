@@ -9,6 +9,8 @@ html {
 }
 
 .page {
+  display: flex;
+  align-items: center;
   inline-size: 1200px;
   block-size: 100%;
   margin: auto;
@@ -43,7 +45,6 @@ ol {
   flex-direction: row;
   gap: 30px;
   align-items: end;
-  padding: 266px 30px;
 }
 
 .visually-hidden {
@@ -56,16 +57,12 @@ ol {
   white-space: nowrap;
 }
 
-::-webkit-scrollbar {
-  display: none;
-}
-
 .button {
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  block-size: 34px;
+  min-block-size: 34px;
   gap: 10px;
   flex-shrink: 0;
   border: 1px solid #fff;
@@ -184,11 +181,13 @@ ol {
 .result__video-container {
   position: relative;
   margin-block-end: 16px;
+  inline-size: 711px;
+  block-size: 386px;
 }
 
 .result__video {
-  inline-size: 711px;
-  block-size: 386px;
+  inline-size: 100%;
+  block-size: 100%;
   object-fit: cover;
   object-position: center;
 }
@@ -207,12 +206,6 @@ ol {
   flex-direction: column;
   gap: 5px;
   border: 0;
-}
-
-.search-form__fieldset:nth-child(2) {
-  block-size: 54px;
-  inline-size: 212px;
-  gap: 7px;
 }
 
 .search-form__label {
@@ -299,9 +292,7 @@ ol {
 }
 
 .search-form__label:has(:focus-visible) {
-  outline-color: #fff;
-  outline-width: 1px;
-  outline-style: solid;
+  outline: 1px solid #fff;
   outline-offset: 2px;
 }
 
@@ -313,9 +304,9 @@ ol {
 
 /* Стили для элементов в состоянии :hover */
 
-.search-form__label:hover > .search-form__label-text:not(.visually-hidden),
+.search-form__label:hover .search-form__label-text,
 .button:hover,
-.content__card-link:hover .content__video-card-description-container {
+.content__card-link:hover {
   text-decoration: underline;
 }
 
